@@ -1,0 +1,99 @@
+.products {
+  position: relative;
+}
+.backgroundHeader {
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 30%;
+  background-color: #686868;
+  background-blend-mode: multiply;
+}
+
+.title {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 4px 2px 3px black;
+  text-align: center;
+}
+
+.listProducts {
+  align-items: stretch;
+  padding: 20px;
+}
+
+.contentItemProduct {
+  padding: 15px;
+}
+
+.itemProduct {
+  height: 100%;
+  border: solid 1px #ebebeb;
+  transition: all ease-in-out 0.5s;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.itemProduct:hover {
+  box-shadow: 0px 0px 4px rgb(184, 184, 184);
+  transform: scale(1.05);
+  transition: all ease-in-out 0.5s;
+  cursor: pointer;
+}
+
+.contentImgProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 250px;
+}
+
+.imgProduct {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.titleProduct {
+  text-align: center;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.priceProduct {
+  text-align: center;
+  line-height: normal;
+  font-size: 1.6rem;
+  font-weight: 500;
+  flex: 1;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+}
+
+.stockProduct {
+  color: rgb(35, 36, 114);
+  justify-self: flex-end;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.customInputNumber input {
+  text-align: center;
+}
+
+.customInputNumber span {
+  display: none;
+}
+
+.amountProduct {
+  padding: 20px;
+}
+
+.actionsHeader {
+  padding: 20px;
+}
