@@ -1,0 +1,17 @@
+.buttonStore {
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 2rem;
+}
+
+.buttonStore a {
+  color: white;
+}
+
+.buttonStore a:hover {
+  text-decoration: none;
+}

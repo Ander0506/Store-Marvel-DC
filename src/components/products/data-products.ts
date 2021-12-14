@@ -8,6 +8,7 @@ export const products: IProduct[] = [
     price: 1125000,
     stock: 5,
     category: 'toys',
+    amount: 0,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const products: IProduct[] = [
     price: 305000,
     stock: 10,
     category: 'toys',
+    amount: 0,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const products: IProduct[] = [
     price: 149900,
     stock: 3,
     category: 'toys',
+    amount: 0,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const products: IProduct[] = [
     price: 375000,
     stock: 1,
     category: 'toys',
+    amount: 0,
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const products: IProduct[] = [
     price: 189000,
     stock: 6,
     category: 'toys',
+    amount: 0,
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ export const products: IProduct[] = [
     price: 695000,
     stock: 8,
     category: 'toys',
+    amount: 0,
   },
   //   {
   //     name: 'xxxxxx',
@@ -55,5 +61,6 @@ export const products: IProduct[] = [
   //     price: xxxx,
   //     stock: xxxx,
   //     category: 'xxx',
+  //     amount: xxx
   //   },
 ];

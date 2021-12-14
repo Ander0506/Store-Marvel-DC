@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import 'rsuite/dist/rsuite.min.css';
 import './index.css';
 import Provider from './components/store/provider-store';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <Provider />
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

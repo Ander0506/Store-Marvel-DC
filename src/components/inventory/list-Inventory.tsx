@@ -40,6 +40,13 @@ const ListInventory: FC<{ listProducts: IProduct[]; componentRender?: string }> 
     );
   };
 
+  const rowClass = (rowData: any) => {
+    if (rowData && rowData.stock === 0) {
+      return Style.rowRed;
+    }
+    return '';
+  };
+
   return (
     <>
       <FlexboxGrid justify="center">
@@ -58,7 +65,7 @@ const ListInventory: FC<{ listProducts: IProduct[]; componentRender?: string }> 
           </ButtonToolbar>
         </FlexboxGrid.Item>
         <FlexboxGrid.Item colspan={22}>
-          <Table autoHeight data={listProducts} rowHeight={66}>
+          <Table autoHeight data={listProducts} rowHeight={66} rowClassName={rowClass}>
             <Table.Column width={120}>
               <Table.HeaderCell> Imagen Producto </Table.HeaderCell>
               <ImageCell dataKey="urlImage" verticalAlign="middle" height={100} />

@@ -24,7 +24,6 @@ const FormProduct: FC<{ showModal: boolean; onClose: () => void; mode?: string; 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('entró');
     switch (mode) {
       case 'ADD':
         setReadOnly(false);
@@ -77,6 +76,7 @@ const FormProduct: FC<{ showModal: boolean; onClose: () => void; mode?: string; 
         urlImage: '',
         price: 0,
         stock: 0,
+        amount: 0,
       };
     }
   };

@@ -93,7 +93,30 @@
 .amountProduct {
   padding: 20px;
 }
+.amountProduct p {
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  font-size: 1.2rem;
+  background-color: rgb(243, 93, 93);
+}
 
 .actionsHeader {
   padding: 20px;
+}
+
+.rowRed div {
+  background-color: rgb(255, 243, 243);
+}
+
+.buttonShopCart {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+.buttonShopCart button {
+  padding-right: 20px !important;
 }

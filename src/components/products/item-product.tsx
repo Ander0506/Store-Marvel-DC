@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { ButtonToolbar, Col, FlexboxGrid, IconButton, InputGroup, InputNumber, toaster } from 'rsuite';
 import { currency, PopupMessage } from '../../helpers';
 import { IProduct } from '../../interfaces/product.interface';
@@ -6,12 +6,17 @@ import Style from './products.module.css';
 import { IoCartOutline } from 'react-icons/io5';
 import { useAppDispatch } from '../store/hooks-store';
 import { updateProduct } from '../../features/products/products-slice';
+import { addProduct } from '../../features/shopping-cart/shopping-cart-slice';
 
 const ItemProducts: FC<{ product: IProduct }> = ({ product }) => {
   const [amount, SetAmount] = useState<number>(0);
   const [stock, SetStock] = useState<number>(product.stock);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    SetStock(product.stock);
+  }, [product]);
 
   const increment = () => {
     if (amount < product.stock) {
@@ -35,11 +40,15 @@ const ItemProducts: FC<{ product: IProduct }> = ({ product }) => {
     }
   };
 
-  const cart = () => {
-    let newStock = product.stock - amount;
-    let productUpdated = { ...product, stock: newStock };
-    dispatch(updateProduct(productUpdated));
-    SetAmount(0);
+  const shoppingcart = () => {
+    if (amount !== 0) {
+      let newStock = product.stock - amount;
+      let productUpdated = { ...product, stock: newStock };
+      let productCart = { ...product, stock: 0, amount };
+      dispatch(updateProduct(productUpdated));
+      dispatch(addProduct(productCart));
+      SetAmount(0);
+    }
   };
 
   const exhausted = <p>Agotado</p>;
@@ -72,7 +81,13 @@ const ItemProducts: FC<{ product: IProduct }> = ({ product }) => {
         </FlexboxGrid>
         <FlexboxGrid justify="center">
           <ButtonToolbar>
-            <IconButton onClick={cart} appearance="primary" color="green" icon={<IoCartOutline className="rs-icon" />}>
+            <IconButton
+              disabled={product.stock === 0 || amount === 0}
+              onClick={shoppingcart}
+              appearance="primary"
+              color="green"
+              icon={<IoCartOutline className="rs-icon" />}
+            >
               Añadir al Carrito
             </IconButton>
           </ButtonToolbar>

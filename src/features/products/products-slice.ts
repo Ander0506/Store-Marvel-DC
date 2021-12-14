@@ -22,6 +22,17 @@ const updateProductReducer: CaseReducer<IProduct[], PayloadAction<IProduct>> = (
   return newList;
 };
 
+// Reducer y acciones para actualizar el stock de un producto
+const updateStockReducer: CaseReducer<IProduct[], PayloadAction<IProduct>> = (products, action) => {
+  let newList = products.map((product) => {
+    if (product.id === action.payload.id) {
+      return { ...product, stock: product.stock + action.payload.amount };
+    }
+    return product;
+  });
+  return newList;
+};
+
 // Reducer y acciones para remover un producto de la lista de productos
 const removeProductReducer: CaseReducer<IProduct[], PayloadAction<number | undefined>> = (products, action) => {
   if (action.payload) {
@@ -38,11 +49,12 @@ const productsSlice = createSlice({
     addProduct: addProductReducer,
     removeProduct: removeProductReducer,
     updateProduct: updateProductReducer,
+    updateStock: updateStockReducer,
   },
 });
 
 // Exponer acciones de productos
-export const { addProduct, removeProduct, updateProduct } = productsSlice.actions;
+export const { addProduct, removeProduct, updateProduct, updateStock } = productsSlice.actions;
 
 // combinaciones de estados
 export const stateProducts = (state: RootState) => state.stateProducts;
