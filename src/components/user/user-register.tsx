@@ -5,6 +5,7 @@ import { PopupMessage } from '../../helpers';
 import { IUser } from '../../interfaces/user.interface';
 import { useAppDispatch } from '../store/hooks-store';
 import { addUser } from '../../features/user/user-slice';
+import Style from './user.module.css';
 
 const { StringType, NumberType } = Schema.Types;
 
@@ -70,12 +71,12 @@ const UserRegister: FC<{ users: IUser[] }> = ({ users }) => {
   };
 
   return (
-    <FlexboxGrid justify="center" align="middle">
-      <FlexboxGrid.Item colspan={10}>
-        <h5>Registro de Usuario</h5>
+    <FlexboxGrid justify="center" align="middle" className={Style.content}>
+      <FlexboxGrid.Item colspan={10} className={Style.frame}>
+        <h5 className={Style.title}>Registro de Usuario</h5>
         <Form ref={formRef} onChange={(e: any) => setFormValue(e)} formValue={formValue} model={model}>
           <FlexboxGrid justify="center">
-            <FlexboxGrid.Item colspan={12}>
+            <FlexboxGrid.Item colspan={12} className={Style.contentForm}>
               <Form.Group controlId="name">
                 <Form.ControlLabel>Nombre </Form.ControlLabel>
                 <Form.Control name="name" tabIndex={1} />
@@ -93,7 +94,7 @@ const UserRegister: FC<{ users: IUser[] }> = ({ users }) => {
                 <Form.Control name="password" type="password" tabIndex={7} />
               </Form.Group>
             </FlexboxGrid.Item>
-            <FlexboxGrid.Item colspan={12}>
+            <FlexboxGrid.Item colspan={12} className={Style.contentForm}>
               <Form.Group controlId="lastName">
                 <Form.ControlLabel>Apellido </Form.ControlLabel>
                 <Form.Control name="lastName" tabIndex={2} />
@@ -110,12 +111,14 @@ const UserRegister: FC<{ users: IUser[] }> = ({ users }) => {
                 <Form.ControlLabel>Confirmar Contraseña </Form.ControlLabel>
                 <Form.Control name="verifyPassword" type="password" tabIndex={8} />
               </Form.Group>
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={24} className={Style.contentButtons}>
               <ButtonToolbar>
-                <Button appearance="primary" onClick={onFormSubmit}>
+                <Button appearance="primary" onClick={onFormSubmit} className={Style.shapeButton}>
                   CONFIRMAR
                 </Button>
 
-                <Button appearance="ghost" onClick={() => navigate('/login')}>
+                <Button appearance="ghost" onClick={() => navigate('/login')} className={Style.shapeButton}>
                   INICIAR SESIÓN
                 </Button>
               </ButtonToolbar>

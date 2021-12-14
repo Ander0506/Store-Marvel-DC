@@ -5,6 +5,7 @@ import { IUser } from '../../interfaces/user.interface';
 import { useAppDispatch } from '../store/hooks-store';
 import { SignIn } from '../../features/user/user-slice';
 import { PopupMessage } from '../../helpers';
+import Style from './user.module.css';
 
 const { StringType } = Schema.Types;
 
@@ -47,28 +48,28 @@ const Login: FC<{ users: IUser[] }> = ({ users }) => {
   };
 
   return (
-    <FlexboxGrid justify="center" align="middle">
-      <FlexboxGrid.Item colspan={10}>
-        <h5>Inicio de Sesión</h5>
+    <FlexboxGrid justify="center" align="middle" className={Style.content}>
+      <FlexboxGrid.Item colspan={6} className={Style.frame}>
+        <h5 className={Style.title}>Inicio de Sesión</h5>
         <Form ref={formRef} onChange={(e: any) => setFormValue(e)} formValue={formValue} model={model}>
           <FlexboxGrid justify="center">
-            <FlexboxGrid.Item colspan={12}>
+            <FlexboxGrid.Item colspan={24} className={Style.contentForm}>
               <Form.Group controlId="userName">
-                <Form.ControlLabel>Nombre de Usuario </Form.ControlLabel>
+                <Form.ControlLabel>Usuario </Form.ControlLabel>
                 <Form.Control name="userName" tabIndex={6} />
               </Form.Group>
-            </FlexboxGrid.Item>
-            <FlexboxGrid.Item colspan={12}>
               <Form.Group controlId="password">
                 <Form.ControlLabel>Contraseña </Form.ControlLabel>
                 <Form.Control name="password" type="password" tabIndex={8} />
               </Form.Group>
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={24} className={Style.contentButtons}>
               <ButtonToolbar>
-                <Button appearance="primary" onClick={onSubmitForm}>
+                <Button appearance="primary" onClick={onSubmitForm} className={Style.shapeButton}>
                   INICIAR SESIÓN
                 </Button>
 
-                <Button appearance="ghost" onClick={onClickRegister}>
+                <Button appearance="ghost" onClick={onClickRegister} className={Style.shapeButton}>
                   REGISTRARSE
                 </Button>
               </ButtonToolbar>
