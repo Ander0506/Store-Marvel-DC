@@ -113,6 +113,13 @@
 .buttonShopCart {
   position: absolute;
   top: 30px;
+  right: 200px;
+  z-index: 1;
+}
+
+.buttonLogin {
+  position: absolute;
+  top: 30px;
   right: 30px;
   z-index: 1;
 }

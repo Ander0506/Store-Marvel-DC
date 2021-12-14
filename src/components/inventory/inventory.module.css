@@ -1,7 +1,7 @@
 .buttonStore {
   position: absolute;
   z-index: 1;
-  right: 30px;
+  right: 190px;
   top: 30px;
   padding-left: 30px;
   padding-right: 30px;
@@ -14,4 +14,14 @@
 
 .buttonStore a:hover {
   text-decoration: none;
+}
+
+.signOut {
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 2rem;
 }
