@@ -67,14 +67,14 @@ const ItemProducts: FC<{ product: IProduct }> = ({ product }) => {
   );
 
   return (
-    <FlexboxGrid.Item as={Col} colspan={4} className={Style.contentItemProduct}>
+    <FlexboxGrid.Item as={Col} colspan={4} lg={4} md={6} sm={12} xs={24} className={Style.contentItemProduct}>
       <div className={Style.itemProduct}>
         <div className={Style.contentImgProduct}>
           <img className={Style.imgProduct} alt={product.name} src={product.urlImage} />
         </div>
         <p className={Style.titleProduct}>{product.name}</p>
         <p className={Style.priceProduct}>{currency.format(product.price)}</p>
-        <p className={Style.stockProduct}>{`Unidades disponibles: ${stock}`}</p>
+        <p className={Style.stockProduct} data-test-id={stock}>{`Unidades disponibles: ${stock}`}</p>
         <FlexboxGrid align="middle" className={Style.amountProduct}>
           {product.stock === 0 && exhausted}
           {product.stock !== 0 && componentAmount}
